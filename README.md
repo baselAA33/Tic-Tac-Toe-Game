@@ -7,8 +7,8 @@ The first player to get 3 of her marks in a row (up, down, across, or diagonally
 When all 9 squares are full, the game is drawn and over.
 Enjoy!
 
-##Created using:
-###HTML, CSS, JavaScript.
-###Built from scratch with no starter code.
+## Created using:
+### HTML, CSS, JavaScript.
+### Built from scratch with no starter code.
 
 ##Visit the Site and Play: 
