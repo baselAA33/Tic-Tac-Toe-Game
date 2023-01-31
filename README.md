@@ -12,4 +12,4 @@ Enjoy!
 Built from scratch with no starter code.
 
 
-## Visit the Site and Play: https://baselaa33.github.io/Tic-Tac-Toe-Game/
+Visit the Site and Play: https://baselaa33.github.io/Tic-Tac-Toe-Game/
