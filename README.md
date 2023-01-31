@@ -8,7 +8,8 @@ When all 9 squares are full, the game is drawn and over.
 Enjoy!
 
 ## Created using:
-### HTML, CSS, JavaScript.
-### Built from scratch with no starter code.
+#### HTML, CSS, JavaScript.
+Built from scratch with no starter code.
 
-##Visit the Site and Play: 
+
+## Visit the Site and Play: 
