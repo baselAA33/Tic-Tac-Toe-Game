@@ -6,3 +6,9 @@ You are X (Player 1), your opponent is O (Player 2) or vice versa. Players take 
 The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
 When all 9 squares are full, the game is drawn and over.
 Enjoy!
+
+##Created using:
+###HTML, CSS, JavaScript.
+###Built from scratch with no starter code.
+
+##Visit the Site and Play: 
