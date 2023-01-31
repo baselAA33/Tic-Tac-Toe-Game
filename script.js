@@ -1,7 +1,7 @@
 const boxes = document.querySelectorAll(".box");
 let turn = "X";
 let player = 1;
-const sound = new Audio("C:\Users\Basel\Downloads\swing-whoosh-110410.mp3");
+const sound = new Audio("https://www.fesliyanstudios.com/play-mp3/1216");
 const winConditions = [  [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
