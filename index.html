@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1021/1021366.png">
+    <style>
+      body {
+        background-image: url("https://static.vecteezy.com/system/resources/previews/002/072/005/original/modern-gradient-purple-blue-background-free-vector.jpg");
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        grid-gap: 10px;
+        background: rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .x {
+        background: rgba(255, 0, 0, 0.7);
+      }
+      .o {
+        background: rgba(0, 0, 255, 0.7);
+      }
+      .winner {
+        background: rgba(0, 255, 0, 0.7);
+      }
+      header {
+        padding: 3px;
+        background-color: MediumPurple;
+        position: fixed;
+        top: 0;
+        width: 65%;
+        text-align: center;
+        color: Navy;
+      }
+      .rules {
+        margin-left: 60px;
+        width: 350px;
+        float: left;
+        color: lavender;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+    <h1>Tic-Tac-Toe Game!</h1>
+    </header>
+    <div class="board">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="rules">
+      <p style="color: black;font-size:20px"><b><u>How to play:</u></b></p>
+      <p>The game is played on a grid that's 3 squares by 3 squares.</p>
+      <p>You are X (Player 1), your opponent is O (Player 2) or vice versa. Players take turns putting their marks in empty squares by clicking on them.</p>
+      <p>The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.</p>
+      <p>When all 9 squares are full, the game is drawn and over.</p>
+      <p>Enjoy!</p>
+    </div>
+    <audio id="soundEffect" src="C:\Users\Basel\Downloads\swing-whoosh-110410.mp3"></audio>
+  </body>
+  <script>
+  const boxes = document.querySelectorAll(".box");
+let turn = "X";
+let player = 1;
+const sound = new Audio("C:\Users\Basel\Downloads\swing-whoosh-110410.mp3");
+const winConditions = [  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
+
+boxes.forEach(box => {
+  box.addEventListener("click", handleClick);
+});
+
+function handleClick(event) {
+  const box = event.target;
+  if (box.innerHTML !== "") return;
+  box.innerHTML = turn;
+  box.classList.add(turn.toLowerCase());
+  document.getElementById("soundEffect").play();
+  checkForWin();
+  checkForDraw();
+  turn = turn === "X" ? "O" : "X";
+  player = player === 1 ? 2 : 1;
+}
+
+function checkForWin() {
+  for (let i = 0; i < winConditions.length; i++) {
+    const [a, b, c] = winConditions[i];
+    if (
+      boxes[a].innerHTML === turn &&
+      boxes[b].innerHTML === turn &&
+      boxes[c].innerHTML === turn
+    ) {
+      boxes[a].classList.add("winner");
+      boxes[b].classList.add("winner");
+      boxes[c].classList.add("winner");
+      showWinMessage(player);
+      return;
+    }
+  }
+}
+
+function checkForDraw() {
+  let draw = true;
+  boxes.forEach(box => {
+    if (box.innerHTML === "") {
+      draw = false;
+    }
+  });
+  if (draw) {
+    showDrawMessage();
+  }
+}
+
+function showWinMessage(winner) {
+  setTimeout(() => {
+    alert(`Player ${winner} wins!`);
+    resetGame();
+  }, 500);
+}
+
+function showDrawMessage() {
+  setTimeout(() => {
+    alert("It's a draw!");
+    resetGame();
+  }, 500);
+}
+
+function resetGame() {
+  boxes.forEach(box => {
+    box.innerHTML = "";
+    box.classList.remove("x", "o", "winner");
+  });
+  turn = "X";
+  player = 1;
+}
+
+
+  </script>
+</html>
